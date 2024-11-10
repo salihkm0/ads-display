@@ -204,7 +204,7 @@ exports.deleteVideo = async (req, res) => {
         await Video.findByIdAndDelete(videoId);
     
         // Notify the "Pi" server to delete the local copy
-        await axios.post('http://127.0.0.1:3001/delete-video', { filename: video.filename });
+        await axios.post('https://fe39-2409-40f3-2c-f104-de4-9fa6-6b3b-5d67.ngrok-free.app/delete-video', { filename: video.filename });
     
         res.json({ message: 'Video deleted successfully' });
         console.log('Video deleted successfully')
